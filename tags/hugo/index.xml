@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hugo on Even - A super concise theme for Hugo</title>
-    <link>http://KiteYN.github.io/tags/hugo/</link>
-    <description>Recent content in Hugo on Even - A super concise theme for Hugo</description>
+    <title>Hugo on Page of KiteYN</title>
+    <link>http://localhost:1313/tags/hugo/</link>
+    <description>Recent content in Hugo on Page of KiteYN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 15 Sep 2022 23:09:54 +0800</lastBuildDate><atom:link href="http://KiteYN.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Sep 2022 23:09:54 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo搭建五步曲(Windows)</title>
-      <link>http://KiteYN.github.io/tech/hugo%E5%AE%89%E8%A3%85%E4%BA%94%E6%AD%A5%E6%9B%B2windows/</link>
+      <link>http://localhost:1313/tech/hugo%E5%AE%89%E8%A3%85%E4%BA%94%E6%AD%A5%E6%9B%B2windows/</link>
       <pubDate>Thu, 15 Sep 2022 23:09:54 +0800</pubDate>
       
-      <guid>http://KiteYN.github.io/tech/hugo%E5%AE%89%E8%A3%85%E4%BA%94%E6%AD%A5%E6%9B%B2windows/</guid>
+      <guid>http://localhost:1313/tech/hugo%E5%AE%89%E8%A3%85%E4%BA%94%E6%AD%A5%E6%9B%B2windows/</guid>
       <description>Hugo搭建五步曲(Windows) Hugo搭建方法其实很简单，但在搭建过程笔者因为各种原因踩了不少坑，用时两小时；顺利的话其实用不到二十分</description>
     </item>
     
