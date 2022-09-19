@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Nvidia驱动、CUDA安装版本基本概念 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="kiteYN" /><meta name="description" content="CUDA安装基本概念入门 一、背景 1 2 3 4 &amp;gt;&amp;gt;&amp;gt; torc.cuda.is_available() /home/slyang/.conda/envs/nlp/lib/python3.7/site-packages/torch/cuda/__init__.py:83: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 101: invalid device ordinal (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:109.) return torch._C._cuda_getDeviceCount() &amp;gt; 0 False 省流，最终解决方案：" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.102.3 with theme even" />
+
+
+<link rel="canonical" href="http://kiteYN.github.io/tech/cuda%E9%A9%B1%E5%8A%A8/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Nvidia驱动、CUDA安装版本基本概念" />
+<meta property="og:description" content="CUDA安装基本概念入门 一、背景 1 2 3 4 &gt;&gt;&gt; torc.cuda.is_available() /home/slyang/.conda/envs/nlp/lib/python3.7/site-packages/torch/cuda/__init__.py:83: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 101: invalid device ordinal (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:109.) return torch._C._cuda_getDeviceCount() &gt; 0 False 省流，最终解决方案：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://kiteYN.github.io/tech/cuda%E9%A9%B1%E5%8A%A8/" /><meta property="article:section" content="tech" />
+<meta property="article:published_time" content="2022-09-19T22:51:34+08:00" />
+<meta property="article:modified_time" content="2022-09-19T22:51:34+08:00" />
+
+<meta itemprop="name" content="Nvidia驱动、CUDA安装版本基本概念">
+<meta itemprop="description" content="CUDA安装基本概念入门 一、背景 1 2 3 4 &gt;&gt;&gt; torc.cuda.is_available() /home/slyang/.conda/envs/nlp/lib/python3.7/site-packages/torch/cuda/__init__.py:83: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 101: invalid device ordinal (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:109.) return torch._C._cuda_getDeviceCount() &gt; 0 False 省流，最终解决方案："><meta itemprop="datePublished" content="2022-09-19T22:51:34+08:00" />
+<meta itemprop="dateModified" content="2022-09-19T22:51:34+08:00" />
+<meta itemprop="wordCount" content="1690">
+<meta itemprop="keywords" content="torch," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Nvidia驱动、CUDA安装版本基本概念"/>
+<meta name="twitter:description" content="CUDA安装基本概念入门 一、背景 1 2 3 4 &gt;&gt;&gt; torc.cuda.is_available() /home/slyang/.conda/envs/nlp/lib/python3.7/site-packages/torch/cuda/__init__.py:83: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 101: invalid device ordinal (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:109.) return torch._C._cuda_getDeviceCount() &gt; 0 False 省流，最终解决方案："/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/about/">
+        <li class="mobile-menu-item">Start</li>
+      </a><a href="/poem/">
+        <li class="mobile-menu-item">随笔</li>
+      </a><a href="/tech/">
+        <li class="mobile-menu-item">技术</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/about/">Start</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/poem/">随笔</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tech/">技术</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <div class="post-content">
+    <h1 id="cuda安装基本概念入门"><strong>CUDA安装基本概念入门</strong></h1>
+<h2 id="一背景"><strong>一、背景</strong></h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">torc</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">slyang</span><span class="o">/.</span><span class="n">conda</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">nlp</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.7</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">torch</span><span class="o">/</span><span class="n">cuda</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">83</span><span class="p">:</span> <span class="ne">UserWarning</span><span class="p">:</span> <span class="n">CUDA</span> <span class="n">initialization</span><span class="p">:</span> <span class="n">Unexpected</span> <span class="n">error</span> <span class="kn">from</span> <span class="nn">cudaGetDeviceCount</span><span class="p">()</span><span class="o">.</span> <span class="n">Did</span> <span class="n">you</span> <span class="n">run</span> <span class="n">some</span> <span class="n">cuda</span> <span class="n">functions</span> <span class="n">before</span> <span class="n">calling</span> <span class="n">NumCudaDevices</span><span class="p">()</span> <span class="n">that</span> <span class="n">might</span> <span class="n">have</span> <span class="n">already</span> <span class="nb">set</span> <span class="n">an</span> <span class="n">error</span><span class="err">?</span> <span class="n">Error</span> <span class="mi">101</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">device</span> <span class="n">ordinal</span> <span class="p">(</span><span class="n">Triggered</span> <span class="n">internally</span> <span class="n">at</span>  <span class="o">../</span><span class="n">c10</span><span class="o">/</span><span class="n">cuda</span><span class="o">/</span><span class="n">CUDAFunctions</span><span class="o">.</span><span class="n">cpp</span><span class="p">:</span><span class="mf">109.</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">_C</span><span class="o">.</span><span class="n">_cuda_getDeviceCount</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="kc">False</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>省流，<strong>最终解决方案：重启 :)</strong></p>
+<h2 id="二基本概念"><strong>二、基本概念</strong></h2>
+<p>CUDA 是 nvidia 公司提供的只能用于自家GPU的并行计算平台和应用程序接口 or 并行计算框架，可以直接链接到 GPU 的虚拟指令集和并行计算单元，从而在 GPU 中完成内核函数的计算。换言之，CUDA 软件可以支持 nvidia家的GPU 计算。</p>
+<blockquote>
+<p>CPU和 GPU 需要处理的问题不同，有个比喻是说 CPU好比十项全能的教授，GPU是众包的小学生。CPU 需要很强的通用性来处理各种数据类型，同时有大量存储单元(Cache)和控制单元，计算单元只是很小一部分，适合逻辑控制和串行处理；GPU则面向高度统一的数据类型（如tensor），计算单元众多，存储较少，擅长大规模并发计算。</p>
+</blockquote>
+<p>CUDA 提供 C/C++接口，也有很多深度学习库提供包装后的 Python 接口。</p>
+<ol>
+<li>
+<p>CUDAnn：基于cuda的针对深度卷积神经网络的加速库。</p>
+</li>
+<li>
+<p>CUDA：应用程序接口，程序提供的数据和让 GPU 如何计算数据的描述结构（如让 GPU内部开多少个线程来算，怎么算等）传递给 CUDA，CUDA调用显卡用户态驱动对 CUDA 程序进行编译，CUDA程序调用内核态驱动将命令以及编译好的程序数据传送给 GPU，GPU干活。 <code>nvcc</code> 是 cuda 编译器，类似 <code>gcc</code> 是 c++ 的编译器。</p>
+</li>
+<li>
+<p>显卡驱动：底层接口，向操作系统介绍显卡的名片，如这个显示设备叫什么、使用这个显示设备需要哪些文件等。没有显卡驱动，就无法识别 GPU 硬件，自然就不能调用其计算资源。分为用户态驱动和内核态驱动。</p>
+</li>
+<li>
+<p>显卡：具体干活的芯片。</p>
+</li>
+</ol>
+<h2 id="三版本兼容问题"><strong>三、版本兼容问题</strong></h2>
+<p>指的是驱动、cuda、torch版本是否匹配</p>
+<h3 id="1--检查系统是否有支持-cuda-编程的-gpu">1.  <strong>检查系统是否有支持 CUDA 编程的 GPU</strong></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ lspci <span class="p">|</span> grep -i VGA
+</span></span><span class="line"><span class="cl">04:00.0 VGA compatible controller: NVIDIA Corporation GV102 <span class="o">(</span>rev ff<span class="o">)</span>
+</span></span><span class="line"><span class="cl">05:00.0 VGA compatible controller: NVIDIA Corporation Device 1e04 <span class="o">(</span>rev a1<span class="o">)</span>
+</span></span><span class="line"><span class="cl">08:00.0 VGA compatible controller: NVIDIA Corporation Device 1e04 <span class="o">(</span>rev a1<span class="o">)</span>
+</span></span><span class="line"><span class="cl">09:00.0 VGA compatible controller: NVIDIA Corporation Device 1e04 <span class="o">(</span>rev a1<span class="o">)</span>
+</span></span><span class="line"><span class="cl">0c:00.0 VGA compatible controller: ASPEED Technology, Inc. ASPEED Graphics Family <span class="o">(</span>rev 30<span class="o">)</span>
+</span></span><span class="line"><span class="cl">84:00.0 VGA compatible controller: NVIDIA Corporation Device 1e04 <span class="o">(</span>rev a1<span class="o">)</span>
+</span></span><span class="line"><span class="cl">85:00.0 VGA compatible controller: NVIDIA Corporation Device 1e04 <span class="o">(</span>rev a1<span class="o">)</span>
+</span></span><span class="line"><span class="cl">88:00.0 VGA compatible controller: NVIDIA Corporation Device 1e04 <span class="o">(</span>rev a1<span class="o">)</span>
+</span></span><span class="line"><span class="cl">89:00.0 VGA compatible controller: NVIDIA Corporation Device 1e04 <span class="o">(</span>rev a1<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>显卡类型为 nvidia ，型号显示为十六进制数字，查阅 <a href="http://pci-ids.ucw.cz/mods/PC/10de?action=help?help=pci">The PCI ID Repository</a> 可知为7块 <strong>TU102 [GeForce RTX 2080 Ti]</strong> ；如果已知是 nvidia 显卡，则可使用 <code>nvidia-smi</code> 来查看显卡型号。</p>
+<blockquote>
+<ol>
+<li>
+<p>vga 接口：视频图形阵列 video graphics array，主机连接显示器用到的15个孔的 D 型接口。显卡具有 vga 接口。</p>
+</li>
+<li>
+<p>HDMI接口：高清多媒体接口 high definition multimedia interface，应用范围包括 PC、电视、DVD，支持1080P的分辨率、八声道或立体声数码音频传送、DVD Audio数字音频格式、无压缩的视频/音频信号传送。</p>
+<ul>
+<li>
+<p>标准 HDMI 接口：A型接口，宽度14mm，主用于高清电视、台式电脑、投影仪等设备</p>
+</li>
+<li>
+<p>mini HDMI 接口：C型接口，宽度10.5mm，主用于MP4、平板电脑、相机等</p>
+</li>
+<li>
+<p>微型 HDMI 接口：D 型接口，宽度 6mm，主用于智能手机、平板电脑</p>
+</li>
+</ul>
+</li>
+<li>
+<p>lspci 命令查看连接在pci总线上的所有设备，用于查看linux系统的硬件</p>
+</li>
+<li>
+<p>GeForce RTX: GeForce 是 nvidia 公司开发的个人电脑的图像处理器品牌，RTX 是该品牌的一个系列，相比于另一个 GTX 系列，主要区别在于卡的实时光线追踪功能。</p>
+</li>
+<li>
+<p><code>nvidia-smi</code>: 是N卡驱动附带的，只要装好驱动，就会有这个命令。</p>
+</li>
+</ol>
+</blockquote>
+<h3 id="2-查看nvidia显卡驱动和cuda版本">2. <strong>查看nvidia显卡驱动和cuda版本</strong></h3>
+<p>一般显卡驱动的版本需要兼容cuda版本，而cuda版本选择要看其上层库如tensorflow、torch的等需求。若已经安装显卡驱动，则可使用 <code>nvidia-smi</code>直接查看驱动和cuda的版本：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ nvidia-smi
+</span></span><span class="line"><span class="cl">NVIDIA-SMI 465.19.01    Driver Version: 465.19.01    CUDA Version: 11.3
+</span></span><span class="line"><span class="cl">...
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可知当前驱动版本是 465.19.01，cuda 版本是 11.3 ，根据 <a href="https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html">cuda tookit documentation</a> 可知兼容。</p>
+<blockquote>
+<ol>
+<li><code>CUDA Toolkit</code> ：一般使用cuda需要先安装显卡驱动、再安装 cuda toolkit。但实际上可以直接安装后者时系统将自动安装与其版本匹配的 nvidia driver。它可以认为是一个软件安装包，会自动安装 driver，nvcc，libraries，CUDA Samples。</li>
+</ol>
+</blockquote>
+<p>查看 nvcc 版本即查看 cuda 版本：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ nvcc -V
+</span></span><span class="line"><span class="cl">nvcc: NVIDIA <span class="o">(</span>R<span class="o">)</span> Cuda compiler driver
+</span></span><span class="line"><span class="cl">Copyright <span class="o">(</span>c<span class="o">)</span> 2005-2021 NVIDIA Corporation
+</span></span><span class="line"><span class="cl">Built on Sun_Mar_21_19:15:46_PDT_2021
+</span></span><span class="line"><span class="cl">Cuda compilation tools, release 11.3, V11.3.58
+</span></span><span class="line"><span class="cl">Build cuda_11.3.r11.3/compiler.29745058_0
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>nvcc显示cuda运行版本为11.3，同cuda 驱动版本一致。</p>
+<h3 id="3-查看-torch版本是否和cuda版本">3. <strong>查看 torch版本是否和cuda版本</strong></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ pip list <span class="p">|</span> grep torch
+</span></span><span class="line"><span class="cl">torch              1.11.0
+</span></span><span class="line"><span class="cl">torchaudio         0.11.0
+</span></span><span class="line"><span class="cl">torchvision        0.12.0
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>根据官网 <a href="https://pytorch.org/get-started/previous-versions/#wheel">Pytorch</a>可知版本是匹配的。</p>
+<h3 id="4-查看驱动版本和运行版本是否兼容">4. <strong>查看驱动版本和运行版本是否兼容</strong></h3>
+<p>驱动版本是 cuda113；nvcc -V` 运行版本11.3.58，兼容。</p>
+
+  </div>
+</article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://kiteYN.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>kiteYN</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

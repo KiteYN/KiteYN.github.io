@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Hugo搭建五步曲(Windows) - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="kiteYN" /><meta name="description" content="本文讲述Hugo在windows下的搭建方法" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.102.3 with theme even" />
+
+
+<link rel="canonical" href="http://kiteYN.github.io/tech/hugo%E5%AE%89%E8%A3%85%E4%BA%94%E6%AD%A5%E6%9B%B2windows/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Hugo搭建五步曲(Windows)" />
+<meta property="og:description" content="本文讲述Hugo在windows下的搭建方法" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://kiteYN.github.io/tech/hugo%E5%AE%89%E8%A3%85%E4%BA%94%E6%AD%A5%E6%9B%B2windows/" /><meta property="article:section" content="tech" />
+<meta property="article:published_time" content="2022-09-15T23:09:54+08:00" />
+<meta property="article:modified_time" content="2022-09-15T23:09:54+08:00" />
+
+<meta itemprop="name" content="Hugo搭建五步曲(Windows)">
+<meta itemprop="description" content="本文讲述Hugo在windows下的搭建方法"><meta itemprop="datePublished" content="2022-09-15T23:09:54+08:00" />
+<meta itemprop="dateModified" content="2022-09-15T23:09:54+08:00" />
+<meta itemprop="wordCount" content="2022">
+<meta itemprop="keywords" content="Hugo," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Hugo搭建五步曲(Windows)"/>
+<meta name="twitter:description" content="本文讲述Hugo在windows下的搭建方法"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/about/">
+        <li class="mobile-menu-item">Start</li>
+      </a><a href="/poem/">
+        <li class="mobile-menu-item">随笔</li>
+      </a><a href="/tech/">
+        <li class="mobile-menu-item">技术</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/about/">Start</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/poem/">随笔</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tech/">技术</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <div class="post-content">
+    <h1 id="hugo搭建五步曲windows">Hugo搭建五步曲(Windows)</h1>
+<p>Hugo搭建方法其实很简单，但在搭建过程笔者因为各种原因踩了不少坑，用时两小时；顺利的话其实用不到二十分钟。如果条件允许，建议在 linux环境上搭建。</p>
+<h2 id="一下载hugo安装包">一、下载Hugo安装包</h2>
+<ol>
+<li>
+<p>首先在 <a href="https://github.com/gohugoio/hugo/releases">github-hugo</a> 中找到对应系统的安装包，笔者是：<a href="https://github.com/gohugoio/hugo/releases/download/v0.102.3/hugo_0.102.3_Windows-64bit.zip">hugo_0.102.3_Windows-64bit.zip</a>，</p>
+</li>
+<li>
+<p>进行解压得到<code>hugo.exe</code>文件，将该文件移动到指定目录的bin文件夹，如新创建的 <code>D:\Data\Hugo\bin</code> 目录下</p>
+</li>
+<li>
+<p>在环境变量 <code>path</code>中添加该目录，以便系统能够识别<code>hugo</code>命令。</p>
+</li>
+<li>
+<p>打开cmd终端，输入<code>hugo version</code> 识别成功</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">C:\&gt;hugo version
+</span></span><span class="line"><span class="cl">hugo v0.102.3-b76146b129d7caa52417f8e914fc5b9271bf56fc windows/amd64 BuildDate=2022-09-01T10:16:19Z VendorInfo=gohugoio
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h2 id="二创建你的个人网站">二、创建你的个人网站</h2>
+<p>现在已经可以来试着创建个人网站了。cd 到准备创建的项目目录下，如 <code>D:\Data\Hugo\Sites</code> 输入</p>
+<p><code>hugo new site yourSiteName</code> 如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">D:\Data\Hugo\Sites&gt;hugo new site kiteYN
+</span></span><span class="line"><span class="cl">Congratulations! Your new Hugo site is created in 
+</span></span><span class="line"><span class="cl">D:\Data\Hugo\Sites\kiteYN.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Just a few more steps and you&#39;re ready to go:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">1. Download a theme into the same-named folder.
+</span></span><span class="line"><span class="cl">   Choose a theme from https://themes.gohugo.io/ or
+</span></span><span class="line"><span class="cl">   create your own with the &#34;hugo new theme &lt;THEMENAME&gt;&#34; command.
+</span></span><span class="line"><span class="cl">2. Perhaps you want to add some content. You can add single files
+</span></span><span class="line"><span class="cl">   with &#34;hugo new &lt;SECTIONNAME&gt;\&lt;FILENAME&gt;.&lt;FORMAT&gt;&#34;.
+</span></span><span class="line"><span class="cl">3. Start the built-in live server via &#34;hugo server&#34;.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Visit https://gohugo.io/ for quickstart guide and full documentation.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="三下载主题库">三、下载主题库</h2>
+<p><a href="https://www.gohugo.org/theme/">Hugo</a> 提供了很多主题，可以根据个人爱好进行选择。这里以 <code>even</code> 主题为例，我们从github上拉取主题文件，并解压进自动创建的themes/even目录下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">D:\Data\Hugo\Sites&gt;git clone https://github.com/olOwOlo/hugo-theme-even themes/even
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以 <code>tree</code> 查看一下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">D:\Data\Hugo\Sites&gt;themes\even&gt;tree
+</span></span><span class="line"><span class="cl">D:.
+</span></span><span class="line"><span class="cl">├─even
+</span></span><span class="line"><span class="cl">│  ├─.github
+</span></span><span class="line"><span class="cl">│  ├─archetypes
+</span></span><span class="line"><span class="cl">│  ├─assets
+</span></span><span class="line"><span class="cl">│  │  ├─js
+</span></span><span class="line"><span class="cl">│  │  └─sass
+</span></span><span class="line"><span class="cl">│  │      ├─_common
+</span></span><span class="line"><span class="cl">│  │      ├─_custom
+</span></span><span class="line"><span class="cl">│  │      └─_partial
+</span></span><span class="line"><span class="cl">│  │          ├─_footer
+</span></span><span class="line"><span class="cl">│  │          ├─_header
+</span></span><span class="line"><span class="cl">│  │          └─_post
+</span></span><span class="line"><span class="cl">│  ├─exampleSite
+</span></span><span class="line"><span class="cl">│  │  └─content
+</span></span><span class="line"><span class="cl">│  │      └─post
+</span></span><span class="line"><span class="cl">│  ├─i18n
+</span></span><span class="line"><span class="cl">│  ├─images
+</span></span><span class="line"><span class="cl">│  ├─layouts
+</span></span><span class="line"><span class="cl">│  │  ├─partials
+</span></span><span class="line"><span class="cl">│  │  │  ├─header
+</span></span><span class="line"><span class="cl">│  │  │  └─post
+</span></span><span class="line"><span class="cl">│  │  ├─post
+</span></span><span class="line"><span class="cl">│  │  ├─shortcodes
+</span></span><span class="line"><span class="cl">│  │  └─_default
+</span></span><span class="line"><span class="cl">│  ├─resources
+</span></span><span class="line"><span class="cl">│  │  └─_gen
+</span></span><span class="line"><span class="cl">│  │      └─assets
+</span></span><span class="line"><span class="cl">│  │          └─scss
+</span></span><span class="line"><span class="cl">│  │              └─sass
+</span></span><span class="line"><span class="cl">│  └─static
+</span></span><span class="line"><span class="cl">│      ├─fonts
+</span></span><span class="line"><span class="cl">│      │  ├─chancery
+</span></span><span class="line"><span class="cl">│      │  └─iconfont
+</span></span><span class="line"><span class="cl">│      ├─img
+</span></span><span class="line"><span class="cl">│      │  └─reward
+</span></span><span class="line"><span class="cl">│      └─lib
+</span></span><span class="line"><span class="cl">│          ├─fancybox
+</span></span><span class="line"><span class="cl">│          ├─flowchartDiagrams
+</span></span><span class="line"><span class="cl">│          ├─highlight
+</span></span><span class="line"><span class="cl">│          ├─jquery
+</span></span><span class="line"><span class="cl">│          ├─js-sequence-diagrams
+</span></span><span class="line"><span class="cl">│          ├─slideout
+</span></span><span class="line"><span class="cl">│          └─timeago
+</span></span><span class="line"><span class="cl">└─maupassant
+</span></span><span class="line"><span class="cl">    ├─archetypes
+</span></span><span class="line"><span class="cl">    ├─layouts
+</span></span><span class="line"><span class="cl">    │  ├─archives
+</span></span><span class="line"><span class="cl">    │  ├─partials
+</span></span><span class="line"><span class="cl">    │  └─_default
+</span></span><span class="line"><span class="cl">    └─static
+</span></span><span class="line"><span class="cl">        ├─css
+</span></span><span class="line"><span class="cl">        │  └─fonts
+</span></span><span class="line"><span class="cl">        └─js
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>（这里的maupassant是另一个主题）。接着注意将该主题下的config文件即<code>D:\Data\Hugo\Sites\kiteYN\themes\even\exampleSite\config.toml</code>复制到站点根目录下</p>
+<p><code>D:\Data\Hugo\Sites\kiteYN</code>替换掉根目录中的原文件</p>
+<h2 id="四启动-server">四、启动 Server</h2>
+<p>此时就可以试着启动站点了~</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">D:\Data\Hugo\Sites\kiteYN&gt;hugo server -D
+</span></span><span class="line"><span class="cl">Start building sites …
+</span></span><span class="line"><span class="cl">hugo v0.102.3-b76146b129d7caa52417f8e914fc5b9271bf56fc windows/amd64 BuildDate=2022-09-01T10:16:19Z VendorInfo=gohugoio
+</span></span><span class="line"><span class="cl">WARN 2022/09/15 23:00:00 The google_news internal template will be removed in a future release. Please remove calls to this template. See https://github.com/gohugoio/hugo/issues/9172 for additional information.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                   | EN
+</span></span><span class="line"><span class="cl">-------------------+-----
+</span></span><span class="line"><span class="cl">  Pages            |  8
+</span></span><span class="line"><span class="cl">  Paginator pages  |  0
+</span></span><span class="line"><span class="cl">  Non-page files   |  0
+</span></span><span class="line"><span class="cl">  Static files     | 38
+</span></span><span class="line"><span class="cl">  Processed images |  0
+</span></span><span class="line"><span class="cl">  Aliases          |  1
+</span></span><span class="line"><span class="cl">  Sitemaps         |  1
+</span></span><span class="line"><span class="cl">  Cleaned          |  0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Built in 74 ms
+</span></span><span class="line"><span class="cl">Watching for changes in D:\Data\Hugo\Sites\kiteYN\{archetypes,content,data,layouts,static,themes}
+</span></span><span class="line"><span class="cl">Watching for config changes in D:\Data\Hugo\Sites\kiteYN\config.toml
+</span></span><span class="line"><span class="cl">Environment: &#34;development&#34;
+</span></span><span class="line"><span class="cl">Serving pages from memory
+</span></span><span class="line"><span class="cl">Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
+</span></span><span class="line"><span class="cl">Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+</span></span><span class="line"><span class="cl">Press Ctrl+C to stop
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>去 http://localhost:1313/ 看看你刚刚创建的新网站吧~</p>
+<p>备注：笔者在这一步上踩了好几个坑T T：</p>
+<ul>
+<li>
+<p>刚开始选择的 <code>git clone https://github.com/JokerQyou/maupassant-hugo.git themes/maupassant</code>  不知道是什么原因后续渲染不出来，有可能是：maupassant中某个文件有误，或者 config 文件没有替换对</p>
+<blockquote>
+<p>Start building sites …
+hugo v0.102.3-b76146b129d7caa52417f8e914fc5b9271bf56fc windows/amd64 BuildDate=2022-09-01T10:16:19Z VendorInfo=gohugoio
+ERROR 2022/09/15 22:36:34 render of &ldquo;taxonomy&rdquo; failed: &ldquo;D:\Data\Hugo\Sites\kiteYN\themes\maupassant\layouts_default\terms.html:1:3&rdquo;: execute of template failed: template: _default/terms.html:1:3: executing &ldquo;_default/terms.html&rdquo; at &lt;partial &ldquo;head&rdquo; .&gt;: error calling partial: &ldquo;D:\Data\Hugo\Sites\kiteYN\themes\maupassant\layouts\partials\head.html:6:12&rdquo;: execute of template failed: template: partials/head.html:6:12: executing &ldquo;partials/head.html&rdquo; at &lt;.Hugo.Generator&gt;: can&rsquo;t evaluate field Hugo in type *hugolib.pageState
+ERROR 2022/09/15 22:36:34 render of &ldquo;taxonomy&rdquo; failed: &ldquo;D:\Data\Hugo\Sites\kiteYN\themes\maupassant\layouts_default\terms.html:1:3&rdquo;: execute of template failed: template: _default/terms.html:1:3: executing &ldquo;_default/terms.html&rdquo; at &lt;partial &ldquo;head&rdquo; .&gt;: error calling partial: &ldquo;D:\Data\Hugo\Sites\kiteYN\themes\maupassant\layouts\partials\head.html:6:12&rdquo;: execute of template failed: template: partials/head.html:6:12: executing &ldquo;partials/head.html&rdquo; at &lt;.Hugo.Generator&gt;: can&rsquo;t evaluate field Hugo in type *hugolib.pageState
+Error: Error building site: failed to render pages: render of &ldquo;home&rdquo; failed: &ldquo;D:\Data\Hugo\Sites\kiteYN\themes\maupassant\layouts\index.html:1:3&rdquo;: execute of template failed: template: index.html:1:3: executing &ldquo;index.html&rdquo; at &lt;partial &ldquo;head&rdquo; .&gt;: error calling partial: &ldquo;D:\Data\Hugo\Sites\kiteYN\themes\maupassant\layouts\partials\head.html:6:12&rdquo;: execute of template failed: template: partials/head.html:6:12: executing &ldquo;partials/head.html&rdquo; at &lt;.Hugo.Generator&gt;: can&rsquo;t evaluate field Hugo in type *hugolib.pageState
+Built in 52 ms</p>
+</blockquote>
+</li>
+<li>
+<p>git clone 一直报错</p>
+<blockquote>
+<p>fatal: unable to access &lsquo;<a href="https://github.com/JokerQyou/maupassant-hugo.git/'">https://github.com/JokerQyou/maupassant-hugo.git/'</a>: Failed to connect to github.com port 443 after 21073 ms: Timed out</p>
+</blockquote>
+<p>查阅网上的解决方案报新错误：</p>
+<blockquote>
+<blockquote>
+<p>git config &ndash;global &ndash;unset http.proxy</p>
+<p>git config &ndash;global &ndash;unset https.proxy</p>
+</blockquote>
+<p>error: RPC failed; curl 28 OpenSSL SSL_read: Connection was reset, errno 10054
+fatal: expected flush after ref listing</p>
+</blockquote>
+<p>最后在 stackflow上找到解法：<code>git init</code> 之后再 git clone 即可。</p>
+</li>
+</ul>
+<h2 id="五创建你的第一个博客">五、创建你的第一个博客</h2>
+<ol>
+<li>先进入站点中的<code>archetypes</code>下修改你的blog模板<code>default.md</code>, 可修改如下</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">title: &#34;{{ replace .Name &#34;-&#34; &#34; &#34; | title }}&#34;
+</span></span><span class="line"><span class="cl">date: {{ .Date }}
+</span></span><span class="line"><span class="cl">tags: [&#34;&#34;]
+</span></span><span class="line"><span class="cl">categories: [&#34;&#34;]
+</span></span><span class="line"><span class="cl">description:
+</span></span><span class="line"><span class="cl">draft: true
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其中date是文章生成时间，description是文章摘要，draft表示文章是否为草稿（文章写完了修改为 true）。</p>
+<ol start="2">
+<li>回到终端创建你的第一篇文章文档：<code>hugo new posts/first_post.md</code></li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">D:\Data\Hugo\Sites\kiteYN&gt;hugo new posts/first_post.md
+</span></span><span class="line"><span class="cl">Content &#34;D:\\Data\\Hugo\\Sites\\kiteYN\\content\\posts\\first_post.md&#34; created
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>进入first_post.md开始创作^ ^</p>
+<ol start="3">
+<li>最后，构建对应的网页</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">D:\Data\Hugo\Sites\kiteYN&gt;hugo server -D -e production --buildDrafts
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>就初步完成啦。 &ndash;buildDrafts的目的是显示草稿文章，此时再打开md文档进行的修改将实时更新噢</p>
+<blockquote>
+<p>作话：感谢smart-lty同学领进门，没事去<a href="https://smart-lty.github.io/about/">tyl的空间</a>踩一踩啦</p>
+</blockquote>
+
+  </div>
+</article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://kiteYN.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>kiteYN</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
