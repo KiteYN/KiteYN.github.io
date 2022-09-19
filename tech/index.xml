@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Teches on Even - A super concise theme for Hugo</title>
-    <link>http://localhost:1313/tech/</link>
+    <link>http://KiteYN.github.io/tech/</link>
     <description>Recent content in Teches on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 19 Sep 2022 22:51:34 +0800</lastBuildDate><atom:link href="http://localhost:1313/tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Sep 2022 22:51:34 +0800</lastBuildDate><atom:link href="http://KiteYN.github.io/tech/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Nvidia驱动、CUDA安装版本基本概念</title>
-      <link>http://localhost:1313/tech/cuda%E9%A9%B1%E5%8A%A8/</link>
+      <link>http://KiteYN.github.io/tech/cuda%E9%A9%B1%E5%8A%A8/</link>
       <pubDate>Mon, 19 Sep 2022 22:51:34 +0800</pubDate>
       
-      <guid>http://localhost:1313/tech/cuda%E9%A9%B1%E5%8A%A8/</guid>
+      <guid>http://KiteYN.github.io/tech/cuda%E9%A9%B1%E5%8A%A8/</guid>
       <description>CUDA安装基本概念入门 一、背景 1 2 3 4 &amp;gt;&amp;gt;&amp;gt; torc.cuda.is_available() /home/slyang/.conda/envs/nlp/lib/python3.7/site-packages/torch/cuda/__init__.py:83: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 101: invalid device ordinal (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:109.) return torch._C._cuda_getDeviceCount() &amp;gt; 0 False 省流，最终解决方案：</description>
     </item>
     
     <item>
       <title>Hugo搭建五步曲(Windows)</title>
-      <link>http://localhost:1313/tech/hugo%E5%AE%89%E8%A3%85%E4%BA%94%E6%AD%A5%E6%9B%B2windows/</link>
+      <link>http://KiteYN.github.io/tech/hugo%E5%AE%89%E8%A3%85%E4%BA%94%E6%AD%A5%E6%9B%B2windows/</link>
       <pubDate>Thu, 15 Sep 2022 23:09:54 +0800</pubDate>
       
-      <guid>http://localhost:1313/tech/hugo%E5%AE%89%E8%A3%85%E4%BA%94%E6%AD%A5%E6%9B%B2windows/</guid>
+      <guid>http://KiteYN.github.io/tech/hugo%E5%AE%89%E8%A3%85%E4%BA%94%E6%AD%A5%E6%9B%B2windows/</guid>
       <description>Hugo搭建五步曲(Windows) Hugo搭建方法其实很简单，但在搭建过程笔者因为各种原因踩了不少坑，用时两小时；顺利的话其实用不到二十分</description>
     </item>
     
